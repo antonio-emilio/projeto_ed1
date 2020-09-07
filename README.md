@@ -8,11 +8,27 @@
 ### Documentação
 Com o iFound, você poderá:
 * Cadastrar categorias;
+* Visualizar categorias criadas;
 * Cadastrar componentes;
+* Visualizar componentes;
 * Procurar componentes;
 * Obter a localização de cada componente cadastrado;
+* Obter informações detalhadas sobre componentes;
+* Dar baixa de estoque e aumentar estoque;
+* Visualizar componentes que estão com o estoque baixo;
+* Cadastrar projetos e componentes necessários, assim como quantidades;
+* Gerar ordem de produção com quantos e quais componentes são necessários para um determinado projeto;
 
-E muito mais!
+### Tecnologia
+O iFound utilizará a linguagem de programação C, com recursos de lista, tipos abstratos de dados, alocação dinâmica e recursividade.
+
+### Autores
+Os autores do iFound são:
+* Melyssa Mariana Gomes Silva
+* Antonio Emílio Pereira
+Ambos alunos de Engenharia de Computação, da Universidade Federal de Goiás.
+
+
 
 
 
