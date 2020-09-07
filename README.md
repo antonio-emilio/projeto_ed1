@@ -24,8 +24,9 @@ O iFound utilizará a linguagem de programação C, com recursos de lista, tipos
 
 ### Autores
 Os autores do iFound são:
-* Melyssa Mariana Gomes Silva
-* Antonio Emílio Pereira
+* Melyssa Mariana Gomes Silva;
+* Antonio Emílio Pereira;
+
 Ambos alunos de Engenharia de Computação, da Universidade Federal de Goiás.
 
 
