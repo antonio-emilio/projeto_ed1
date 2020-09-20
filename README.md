@@ -24,7 +24,7 @@ Com o iFound, você poderá:
 * Gerar ordem de produção com quantos e quais componentes são necessários para um determinado projeto;
 
 ### Tecnologia
-O iFound utilizará a linguagem de programação C, com recursos de lista, tipos abstratos de dados, alocação dinâmica e recursividade.
+O iFound utilizará a linguagem de programação C, com recursos de lista, tipos abstratos de dados, alocação dinâmica e recursividade, mas também haverá uma opção desenvolvida em Java.
 
 ### Autores
 Os autores do iFound são:
