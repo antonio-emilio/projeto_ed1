@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListComponentesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListComponentesEmpty}" rendered="#{componentesController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{componentesController.items.rowCount > 0}">
+                    <h:outputText value="#{componentesController.pagination.pageFirstItem + 1}..#{componentesController.pagination.pageLastItem + 1}/#{componentesController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{componentesController.previous}" value="#{bundle.Previous} #{componentesController.pagination.pageSize}" rendered="#{componentesController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{componentesController.next}" value="#{bundle.Next} #{componentesController.pagination.pageSize}" rendered="#{componentesController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{componentesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComponentesTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComponentesTitle_nome}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nome}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComponentesTitle_valor}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valor}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComponentesTitle_infoAdicional}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.infoAdicional}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComponentesTitle_url}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.url}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComponentesTitle_quantidade}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.quantidade}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComponentesTitle_endereco}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.endereco}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComponentesTitle_foto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.foto}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComponentesTitle_idCategoria}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idCategoria}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComponentesTitle_idUsuario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idUsuario}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{componentesController.prepareView}" value="#{bundle.ListComponentesViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{componentesController.prepareEdit}" value="#{bundle.ListComponentesEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{componentesController.destroy}" value="#{bundle.ListComponentesDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{componentesController.prepareCreate}" value="#{bundle.ListComponentesCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListComponentesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

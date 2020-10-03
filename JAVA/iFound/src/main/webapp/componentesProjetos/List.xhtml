@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListComponentesProjetosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListComponentesProjetosEmpty}" rendered="#{componentesProjetosController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{componentesProjetosController.items.rowCount > 0}">
+                    <h:outputText value="#{componentesProjetosController.pagination.pageFirstItem + 1}..#{componentesProjetosController.pagination.pageLastItem + 1}/#{componentesProjetosController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{componentesProjetosController.previous}" value="#{bundle.Previous} #{componentesProjetosController.pagination.pageSize}" rendered="#{componentesProjetosController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{componentesProjetosController.next}" value="#{bundle.Next} #{componentesProjetosController.pagination.pageSize}" rendered="#{componentesProjetosController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{componentesProjetosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComponentesProjetosTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComponentesProjetosTitle_quantidade}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.quantidade}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComponentesProjetosTitle_observacao}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.observacao}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComponentesProjetosTitle_idComponentes}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idComponentes}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListComponentesProjetosTitle_idProjeto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idProjeto}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{componentesProjetosController.prepareView}" value="#{bundle.ListComponentesProjetosViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{componentesProjetosController.prepareEdit}" value="#{bundle.ListComponentesProjetosEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{componentesProjetosController.destroy}" value="#{bundle.ListComponentesProjetosDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{componentesProjetosController.prepareCreate}" value="#{bundle.ListComponentesProjetosCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListComponentesProjetosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
