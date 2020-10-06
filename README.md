@@ -34,7 +34,7 @@ Os autores do iFound são:
 Ambos alunos de Engenharia de Computação, da Universidade Federal de Goiás.
 
 ### Vídeocast 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/cSIRz7Zs4-4/0.jpg)](https://youtu.be/cSIRz7Zs4-4)
+[![IMAGE ALT TEXT HERE](https://wallpaperaccess.com/full/798107.jpg)](https://youtu.be/cSIRz7Zs4-4)
 
 
 ### Banco de Dados 
