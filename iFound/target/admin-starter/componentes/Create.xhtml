@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateComponentesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateComponentesLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{componentesController.selected.id}" title="#{bundle.CreateComponentesTitle_id}" required="true" requiredMessage="#{bundle.CreateComponentesRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateComponentesLabel_nome}" for="nome" />
+                    <h:inputText id="nome" value="#{componentesController.selected.nome}" title="#{bundle.CreateComponentesTitle_nome}" />
+                    <h:outputLabel value="#{bundle.CreateComponentesLabel_valor}" for="valor" />
+                    <h:inputText id="valor" value="#{componentesController.selected.valor}" title="#{bundle.CreateComponentesTitle_valor}" />
+                    <h:outputLabel value="#{bundle.CreateComponentesLabel_infoAdicional}" for="infoAdicional" />
+                    <h:inputText id="infoAdicional" value="#{componentesController.selected.infoAdicional}" title="#{bundle.CreateComponentesTitle_infoAdicional}" />
+                    <h:outputLabel value="#{bundle.CreateComponentesLabel_url}" for="url" />
+                    <h:inputText id="url" value="#{componentesController.selected.url}" title="#{bundle.CreateComponentesTitle_url}" />
+                    <h:outputLabel value="#{bundle.CreateComponentesLabel_quantidade}" for="quantidade" />
+                    <h:inputText id="quantidade" value="#{componentesController.selected.quantidade}" title="#{bundle.CreateComponentesTitle_quantidade}" />
+                    <h:outputLabel value="#{bundle.CreateComponentesLabel_endereco}" for="endereco" />
+                    <h:inputText id="endereco" value="#{componentesController.selected.endereco}" title="#{bundle.CreateComponentesTitle_endereco}" />
+                    <h:outputLabel value="#{bundle.CreateComponentesLabel_foto}" for="foto" />
+                    <h:inputText id="foto" value="#{componentesController.selected.foto}" title="#{bundle.CreateComponentesTitle_foto}" />
+                    <h:outputLabel value="#{bundle.CreateComponentesLabel_idCategoria}" for="idCategoria" />
+                    <h:selectOneMenu id="idCategoria" value="#{componentesController.selected.idCategoria}" title="#{bundle.CreateComponentesTitle_idCategoria}" >
+                        <f:selectItems value="#{categoriaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateComponentesLabel_idUsuario}" for="idUsuario" />
+                    <h:selectOneMenu id="idUsuario" value="#{componentesController.selected.idUsuario}" title="#{bundle.CreateComponentesTitle_idUsuario}" >
+                        <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{componentesController.create}" value="#{bundle.CreateComponentesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{componentesController.prepareList}" value="#{bundle.CreateComponentesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateComponentesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
