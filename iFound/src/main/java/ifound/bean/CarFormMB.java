@@ -4,8 +4,8 @@
  */
 package ifound.bean;
 
-import ifound.model.Car;
-import ifound.service.CarService;
+import com.github.adminfaces.starter.model.Car;
+import com.github.adminfaces.starter.service.CarService;
 import org.omnifaces.cdi.ViewScoped;
 import org.omnifaces.util.Faces;
 
@@ -14,7 +14,7 @@ import javax.inject.Named;
 import java.io.IOException;
 import java.io.Serializable;
 
-import static ifound.util.Utils.addDetailMessage;
+import static com.github.adminfaces.starter.util.Utils.addDetailMessage;
 import static com.github.adminfaces.template.util.Assert.has;
 
 /**

@@ -1,8 +1,8 @@
 package ifound.jsf;
 
 import ifound.entity.Projeto;
-import ifound.jsf.util.JsfUtil;
-import ifound.jsf.util.PaginationHelper;
+import com.github.adminfaces.starter.jsf.util.JsfUtil;
+import com.github.adminfaces.starter.jsf.util.PaginationHelper;
 import ifound.bean.ProjetoFacade;
 
 import java.io.Serializable;

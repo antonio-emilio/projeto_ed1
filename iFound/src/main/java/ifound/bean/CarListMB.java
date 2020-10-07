@@ -1,8 +1,8 @@
 package ifound.bean;
 
 import ifound.infra.model.Filter;
-import ifound.model.Car;
-import ifound.service.CarService;
+import com.github.adminfaces.starter.model.Car;
+import com.github.adminfaces.starter.service.CarService;
 import com.github.adminfaces.template.exception.BusinessException;
 import org.omnifaces.cdi.ViewScoped;
 import org.primefaces.model.LazyDataModel;
@@ -15,7 +15,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-import static ifound.util.Utils.addDetailMessage;
+import static com.github.adminfaces.starter.util.Utils.addDetailMessage;
 
 /**
  * Created by rmpestano on 12/02/17.
