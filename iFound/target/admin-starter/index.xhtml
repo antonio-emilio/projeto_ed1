@@ -7,18 +7,15 @@
     <ui:param name="renderBreadCrumb" value="false"/>
 
     <ui:define name="title">
-        <h2 class="align-center">
-            Welcome to the <span class="text-aqua"> <i><a href="https://github.com/adminfaces/admin-starter"
-                                                          target="_blank"
-                                                          style="text-transform: none;text-decoration: none"> AdminFaces Starter</a></i></span> Project!
-            <br/>
-            <small>Integrating <p:link value="Primefaces" href="http://primefaces.org"/>, <p:link value="Bootstrap"
-                                                                                                  href="http://getbootstrap.com/"/> and
-                <p:link value="Admin LTE" href="https://almsaeedstudio.com/themes/AdminLTE/index2.html/"/> into your
-                <p:link value="JSF" href="https://javaserverfaces.java.net/"/> application.
-            </small>
+        <h2 class="align-center" style="box-shadow: black">
+            <p:graphicImage library="images" value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/icon.png" width="40"/> 
+            <p:graphicImage library="images" value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/logo.png" width="120"/>  
         </h2>
-
+        <h5 class="align-center">
+            <small>
+            Software de organização de estoque para componentes eletrônicos.
+            </small>
+        </h5>
     </ui:define>
 
 

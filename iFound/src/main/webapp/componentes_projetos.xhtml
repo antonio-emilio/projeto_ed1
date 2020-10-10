@@ -25,7 +25,7 @@
                 </p:selectOneMenu>
             </p:panelGrid>
             <br />
-            <p:commandButton styleClass="btn btn-success btn-block" action="#{componentesProjetosController.create}" onclick="showBar()" oncomplete="if(args.validationFailed){hideBar()}"
+            <p:commandButton styleClass="btn btn-success btn-block" action="#{componentesProjetosController.create}" onclick="showBar()" oncomplete="hideBar()"
                              value="Cadastrar" update="@form"/>
         </h:form>
 

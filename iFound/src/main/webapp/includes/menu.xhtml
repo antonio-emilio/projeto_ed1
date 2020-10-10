@@ -11,25 +11,53 @@
             </p:link>
         </li>
         <li class="header">
-            General
+            Opções
         </li>
         <li>
-            <p:link outcome="/componentes">
-                <i class="fa fa-dashboard"></i>
-                <span>Componentes</span>
-            </p:link>
-            <p:link outcome="/componentes_projetos">
-                <i class="fa fa-dashboard"></i>
-                <span>Projetos</span>
-            </p:link>
-            <p:link outcome="/cadastrar_projeto">
-                <i class="fa fa-dashboard"></i>
-                <span>Cadastrar Projeto</span>
-            </p:link>
-            <p:link outcome="/car-list">
-                <i class="fa fa-list"></i>
-                <span>Projetos</span>
-            </p:link>
+            <li class="dropdown">
+
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-list"></i>Projetos <span
+                        class="caret"></span>
+
+                </a>
+
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <p:link outcome="/cadastrar_projeto">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Cadastrar Projeto</span>
+                        </p:link>
+                    </li>
+                    <li>
+                        <p:link outcome="/componentes_projetos">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Componentes Projeto</span>
+                        </p:link>
+                    </li>
+
+
+                </ul>
+
+            </li>
+            <li class="dropdown">
+
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-dashboard"></i>Componentes <span
+                        class="caret"></span>
+
+                </a>
+
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <p:link outcome="/componentes">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Cadastrar Componentes</span>
+                        </p:link>
+                    </li>
+
+
+                </ul>
+
+            </li>
         </li>
 
     </ul>

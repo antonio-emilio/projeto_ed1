@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="#{layoutMB.template}"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:param name="renderBreadCrumb" value="false"/>
+
+    <ui:define name="title">
+        <h:form>
+            <p:panelGrid columns="2" style="margin: auto; min-height:  100%; min-width: 100%;">
+                <p:outputLabel value="#{bundle.CreateComponentesLabel_nome}" for="nome" />
+                <p:inputText id="nome" value="#{componentesController.selected.nome}" title="#{bundle.CreateComponentesTitle_nome}" />
+                <p:outputLabel value="#{bundle.CreateComponentesLabel_valor}" for="valor" />
+                <p:inputText id="valor" value="#{componentesController.selected.valor}" title="#{bundle.CreateComponentesTitle_valor}" />
+                <p:outputLabel value="#{bundle.CreateComponentesLabel_infoAdicional}" for="infoAdicional" />
+                <p:inputText id="infoAdicional" value="#{componentesController.selected.infoAdicional}" title="#{bundle.CreateComponentesTitle_infoAdicional}" />
+                <p:outputLabel value="#{bundle.CreateComponentesLabel_url}" for="url" />
+                <p:inputText id="url" value="#{componentesController.selected.url}" title="#{bundle.CreateComponentesTitle_url}" />
+                <p:outputLabel value="#{bundle.CreateComponentesLabel_quantidade}" for="quantidade" />
+                <p:inputText id="quantidade" value="#{componentesController.selected.quantidade}" title="#{bundle.CreateComponentesTitle_quantidade}" />
+                <p:outputLabel value="#{bundle.CreateComponentesLabel_endereco}" for="endereco" />
+                <p:inputText id="endereco" value="#{componentesController.selected.endereco}" title="#{bundle.CreateComponentesTitle_endereco}" />
+                <p:outputLabel value="#{bundle.CreateComponentesLabel_foto}" for="foto" />
+                <p:inputText id="foto" value="#{componentesController.selected.foto}" title="#{bundle.CreateComponentesTitle_foto}" />
+                <p:outputLabel value="#{bundle.CreateComponentesLabel_idCategoria}" for="idCategoria" />
+                <p:selectOneMenu id="idCategoria" value="#{componentesController.selected.idCategoria}" title="#{bundle.CreateComponentesTitle_idCategoria}" >
+                    <f:selectItems value="#{categoriaController.itemsAvailableSelectOne}"/>
+                </p:selectOneMenu>
+            </p:panelGrid>
+            <br/>
+            <p:commandButton styleClass="btn btn-success btn-block" action="#{componentesController.create}" onclick="showBar()" oncomplete="hideBar()"
+                             value="Cadastrar" update="@form"/>
+
+
+        </h:form>
+
+    </ui:define>
+
+
+</ui:composition>

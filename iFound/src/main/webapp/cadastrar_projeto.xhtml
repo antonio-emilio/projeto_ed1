@@ -9,23 +9,15 @@
     <ui:param name="renderBreadCrumb" value="false"/>
 
     <ui:define name="title">
-        <h:form>
-            <p:panelGrid columns="2" style="margin: auto; min-height:  100%; min-width: 100%;">
-                <p:outputLabel value="#{bundle.CreateComponentesProjetosLabel_quantidade}" for="quantidade" />
-                <p:inputText id="quantidade" value="#{componentesProjetosController.selected.quantidade}" title="#{bundle.CreateComponentesProjetosTitle_quantidade}" />
-                <p:outputLabel value="#{bundle.CreateComponentesProjetosLabel_observacao}" for="observacao" />
-                <p:inputText id="observacao" value="#{componentesProjetosController.selected.observacao}" title="#{bundle.CreateComponentesProjetosTitle_observacao}" />
-                <p:outputLabel value="#{bundle.CreateComponentesProjetosLabel_idComponentes}" for="idComponentes" />
-                <p:selectOneMenu id="idComponentes" value="#{componentesProjetosController.selected.idComponentes}" title="#{bundle.CreateComponentesProjetosTitle_idComponentes}" >
-                    <f:selectItems value="#{componentesController.itemsAvailableSelectOne}"/>
-                </p:selectOneMenu>
-                <p:outputLabel value="#{bundle.CreateComponentesProjetosLabel_idProjeto}" for="idProjeto" />
-                <p:selectOneMenu id="idProjeto" value="#{componentesProjetosController.selected.idProjeto}" title="#{bundle.CreateComponentesProjetosTitle_idProjeto}" >
-                    <f:selectItems value="#{projetoController.itemsAvailableSelectOne}"/>
-                </p:selectOneMenu>
-            </p:panelGrid>
-            <br />
-            <p:commandButton styleClass="btn btn-success btn-block" action="#{componentesProjetosController.create}" onclick="showBar()" oncomplete="if(args.validationFailed){hideBar()}"
+            <h:form >
+                <p:panelGrid columns="2" style="margin: auto; min-height:  100%; min-width: 100%;">
+                    <p:outputLabel value="#{bundle.CreateProjetoLabel_foto}" for="foto" />
+                    <p:inputText id="foto" value="#{projetoController.selected.foto}" title="#{bundle.CreateProjetoTitle_foto}" />
+                </p:panelGrid>
+                <br />
+
+            
+            <p:commandButton styleClass="btn btn-success btn-block" action="#{projetoController.create}" onclick="showBar()" oncomplete="hideBar()"
                              value="Cadastrar" update="@form"/>
         </h:form>
 
