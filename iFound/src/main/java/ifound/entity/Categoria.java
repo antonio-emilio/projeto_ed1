@@ -100,7 +100,7 @@ public class Categoria implements Serializable {
 
     @Override
     public String toString() {
-        return "com.github.adminfaces.starter.entity.Categoria[ id=" + id + " ]";
+        return id + " - " + nome;
     }
     
 }

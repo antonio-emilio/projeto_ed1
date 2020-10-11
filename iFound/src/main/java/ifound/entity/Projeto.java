@@ -113,7 +113,7 @@ public class Projeto implements Serializable {
 
     @Override
     public String toString() {
-        return "com.github.adminfaces.starter.entity.Projeto[ id=" + id + " ]";
+        return id + " - " + foto;
     }
     
 }

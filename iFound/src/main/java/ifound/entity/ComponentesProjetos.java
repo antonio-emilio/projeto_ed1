@@ -121,7 +121,7 @@ public class ComponentesProjetos implements Serializable {
 
     @Override
     public String toString() {
-        return "com.github.adminfaces.starter.entity.ComponentesProjetos[ id=" + id + " ]";
+        return id + " - " + idComponentes + " - " + idProjeto;
     }
     
 }
