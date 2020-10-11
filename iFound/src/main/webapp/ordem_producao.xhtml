@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="#{layoutMB.template}"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+
+    <ui:param name="renderBreadCrumb" value="false"/>
+
+    <ui:define name="title">
+        <SCRIPT type="text/javascript">
+            function aparecer() {
+                document.getElementById("formulario").style.display = "inline";
+            }
+            function desaparecer() {
+                document.getElementById("formulario").style.display = "none";
+            }
+        </SCRIPT>
+        <h:body class="hold-transition skin-blue sidebar-mini">
+            <div class="content-wrapper content">
+                <h:form>
+                    <div id="formulario" style="display: none;">
+                        <section class="content-header">
+                            <h1>
+                                Ordem de Produção
+                                <small>Aqui está a sua ordem de produção!</small>
+                            </h1>
+                        </section>
+                        <p:dataTable id="ordem" value="#{getuserdata.ordemProducao()}" var="item" paginator="true" rows="15" style="font-size: 14px; text-align: center;">
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Nome | Valor | Localização"/>
+                                </f:facet>
+                                <h:outputText value="#{item.componentes}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListComponentesProjetosTitle_quantidade}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.quantidade}"/>
+                            </p:column>
+
+
+                        </p:dataTable>
+                        <h:commandLink>
+                            <p:commandButton styleClass="btn btn-success btn-block"
+                                             value="Gerar .CSV" update="@form"/>
+
+                            <p:dataExporter type="csv" target="ordem" fileName="ordem_servico"/>
+                        </h:commandLink>
+                    </div>
+                    <div class="content-wrapper content">
+                        <p:dataTable value="#{projetoController.items}" var="item" paginator="true" rows="15" style="font-size: 14px; text-align: center;">
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Nome"/>
+                                </f:facet>
+                                <h:outputText value="#{item.foto}"/>
+                            </p:column>
+                            <p:column>
+                                <p:commandButton styleClass="btn btn-success btn-block" action="#{getuserdata.definirValor(item.id)}" oncomplete="aparecer()"
+                                                 value="Gerar" update="@form" style="width: 100px;"/>
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+
+
+
+                </h:form>
+            </div>
+        </h:body>
+    </ui:define>
+
+
+</ui:composition>

@@ -51,6 +51,28 @@ public class ComponentesProjetos implements Serializable {
     @JoinColumn(name = "id_projeto", referencedColumnName = "id")
     @ManyToOne
     private Projeto idProjeto;
+    
+    private String componentes;
+    private String projeto;
+
+    public String getComponentes() {
+        return componentes;
+    }
+
+    public void setComponentes(String componentes) {
+        this.componentes = componentes;
+    }
+
+    public String getProjeto() {
+        return projeto;
+    }
+
+    public void setProjeto(String projeto) {
+        this.projeto = projeto;
+    }
+    
+    
+    
 
     public ComponentesProjetos() {
     }
