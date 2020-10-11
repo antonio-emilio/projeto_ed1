@@ -9,7 +9,6 @@ import javax.inject.Named;
 import java.io.IOException;
 import java.io.Serializable;
 
-import static com.github.adminfaces.starter.util.Utils.addDetailMessage;
 import com.github.adminfaces.template.config.AdminConfig;
 import javax.inject.Inject;
 
@@ -39,7 +38,6 @@ public class LogonMB extends AdminSession implements Serializable {
 
     public void login() throws IOException {
         currentUser = email;
-        addDetailMessage("Logged in successfully as <b>" + email + "</b>");
         Faces.getExternalContext().getFlash().setKeepMessages(true);
         Faces.redirect(adminConfig.getIndexPage());
     }
