@@ -89,7 +89,7 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListComponentesTitle_idCategoria}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idCategoria}"/>
+                            <h:outputText value="#{item.idCategoria.nome}"/>
                         </p:column>
                         <p:column>
                             <p:commandButton styleClass="btn btn-warning btn-block" action="#{componentesController.prepareEdit}" oncomplete="aparecer()"

@@ -47,7 +47,7 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListComponentesProjetosTitle_idComponentes}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idComponentes}"/>
+                            <h:outputText value="#{item.idComponentes.nome}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
@@ -65,7 +65,7 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListComponentesProjetosTitle_idProjeto}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idProjeto}"/>
+                            <h:outputText value="#{item.idProjeto.foto}"/>
                         </p:column>
                         <p:column>
                             <p:commandButton styleClass="btn btn-warning btn-block" action="#{componentesProjetosController.prepareEdit}" oncomplete="aparecer()"

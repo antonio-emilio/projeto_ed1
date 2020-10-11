@@ -40,7 +40,7 @@ public class GetUserData {
             System.out.println(sql);
             while (rs.next()) {
                 ComponentesProjetos process = new ComponentesProjetos();
-                process.setComponentes(nomeComponente(rs.getString("id_componentes")));
+                process.setObservacao(nomeComponente(rs.getString("id_componentes")));
                 process.setQuantidade(rs.getInt("quantidade"));
                 int quantidade = obterqntd(rs.getString("id_componentes"));
                 quantidade = quantidade - process.getQuantidade();
