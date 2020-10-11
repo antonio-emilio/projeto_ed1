@@ -11,13 +11,13 @@
     <ui:define name="title">
         <h:form >
             <p:panelGrid columns="2" style="margin: auto; min-height:  100%; min-width: 100%;">
-                <p:outputLabel value="#{bundle.CreateProjetoLabel_foto}" for="foto" />
-                <p:inputText id="foto" value="#{projetoController.selected.foto}" title="#{bundle.CreateProjetoTitle_foto}" />
+                <p:outputLabel value="Nome da categoria:" for="nome" />
+                <p:inputText id="nome" value="#{categoriaController.selected.nome}" title="#{bundle.CreateCategoriaTitle_nome}" />
             </p:panelGrid>
             <br />
 
 
-            <p:commandButton styleClass="btn btn-success btn-block" action="#{projetoController.create}" onclick="showBar()" oncomplete="hideBar()"
+            <p:commandButton styleClass="btn btn-success btn-block" action="#{categoriaController.create}" onclick="showBar()" oncomplete="hideBar()"
                              value="Cadastrar" update="@form"/>
         </h:form>
 
