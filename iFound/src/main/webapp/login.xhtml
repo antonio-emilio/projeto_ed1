@@ -79,7 +79,7 @@
         </p:dialog>
 
         <div class="login-box">
-            <p:graphicImage library="images" value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/logo.png" width="180"/>  
+               
             <!-- /.login-logo -->
             <div class="box login-box-body">
                 <h:form>
@@ -97,7 +97,7 @@
                                      placeholder="Digite sua senha" required="true"
                                      requiredMessage="Senha e necessário.."/>
                         <i class="fa fa-lock form-control-feedback" style="font-size: 18px"></i>
-                    </div>
+                    </div><p:graphicImage library="images" value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/logo.png" width="120"/> 
                     <div class="row">
                         <div class="col-xs-12">
                             <p:selectBooleanCheckbox itemLabel="Lembrar" value="#{logonMB.remember}"/>
