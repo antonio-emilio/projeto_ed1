@@ -41,6 +41,8 @@ Ambos alunos de Engenharia de Computação, da Universidade Federal de Goiás.
 <img src="https://media.discordapp.net/attachments/692689155943301195/757297936466968586/unknown.png?width=943&height=672">
 
 ### Layout 
+<img src="https://cdn.discordapp.com/attachments/764880223560794172/766489796716527646/1.png">
+
 <img src="https://media.discordapp.net/attachments/764880223560794172/764880244330594304/unknown.png?width=1358&height=677">
 
 <img src="https://media.discordapp.net/attachments/764880223560794172/764880718051934258/unknown.png?width=1442&height=572">
