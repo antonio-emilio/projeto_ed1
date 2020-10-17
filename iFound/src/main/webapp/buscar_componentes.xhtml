@@ -9,7 +9,39 @@
     <ui:param name="renderBreadCrumb" value="false"/>
 
     <ui:define name="title">
+        <SCRIPT type="text/javascript">
+            function aparecer() {
+                document.getElementById("formulario").style.display = "inline";
+            }
+            function desaparecer() {
+                document.getElementById("formulario").style.display = "none";
+            }
+        </SCRIPT>
         <h:form >
+            <div id="formulario" style="display: none;">
+                <section class="content-header">
+                    <h1>
+                        Componentes
+                        <small>Encontrou seu componente?</small>
+                    </h1>
+                </section>
+                <p:dataTable id="ordem" value="#{getuserdata.procurarComponente()}" var="item" paginator="true" rows="15" style="font-size: 14px; text-align: center;">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Nome | Valor"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nome} | #{item.valor}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Localização"/>
+                        </f:facet>
+                        <h:outputText value="#{item.endereco}"/>
+                    </p:column>
+
+
+                </p:dataTable>
+            </div>
             <p:panelGrid columns="2" style="margin: auto; min-height:  100%; min-width: 100%;">
                 <p:outputLabel value="#{bundle.CreateProjetoLabel_foto}" for="foto" />
                 <p:inputText id="foto" value="#{projetoController.selected.foto}" title="#{bundle.CreateProjetoTitle_foto}" />
@@ -17,8 +49,8 @@
             <br />
 
 
-            <p:commandButton styleClass="btn btn-success btn-block" action="#{projetoController.create}" onclick="showBar()" oncomplete="hideBar()"
-                             value="Cadastrar" update="@form"/>
+            <p:commandButton styleClass="btn btn-success btn-block" action="#{getuserdata.definirProcura(projetoController.selected.foto)}" oncomplete="aparecer()"
+                             value="Buscar" update="@all"/>
         </h:form>
 
     </ui:define>

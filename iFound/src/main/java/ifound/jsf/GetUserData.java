@@ -18,6 +18,7 @@ public class GetUserData {
 
     public static int id;
     public static boolean work = false;
+    public static String procura = "";
 
 // <============================================================================================================================================================================>
     public ArrayList<ComponentesProjetos> ordemProducao() {
@@ -68,6 +69,50 @@ public class GetUserData {
 
     }
 
+    // <============================================================================================================================================================================>
+    public ArrayList<Componentes> procurarComponente() {
+
+        ArrayList<Componentes> registro = new ArrayList<Componentes>();
+        Main.db = null;
+        BD.ConectarBD();
+        String sql = "SELECT * FROM componentes WHERE nome ILIKE '%" + procura + "%'";
+
+        try {
+            Main.sql = Main.db.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        ResultSet rs = null;
+        try {
+            rs = Main.sql.executeQuery(sql);
+            System.out.println(sql);
+            while (rs.next()) {
+                Componentes process = new Componentes();
+                process.setEndereco(rs.getString("endereco"));
+                process.setQuantidade(rs.getInt("quantidade"));
+                process.setValor(rs.getDouble("valor"));
+                process.setNome(rs.getString("nome"));
+                registro.add(process);
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        try {
+            Main.db.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(GetUserData.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        return registro;
+
+    }
+
 // <============================================================================================================================================================================>
     public String nomeComponente(String identificador) {
         String text = "";
@@ -110,6 +155,11 @@ public class GetUserData {
     public void definirValor(int idProjeto) {
         id = idProjeto;
         work = true;
+
+    }
+ //<============================================================================================================================================================================>
+    public void definirProcura(String procurar) {
+        procura = procurar;
 
     }
 // <============================================================================================================================================================================>

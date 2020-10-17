@@ -38,7 +38,7 @@
                         </p:panelGrid>
                         <br/>
                         <p:commandButton styleClass="btn btn-warning btn-block" action="#{componentesProjetosController.update}" oncomplete="desaparecer()"
-                                         value="Atualizar dados" update="@form"/>
+                                         value="Atualizar dados" update="@all"/>
                         <br/>
 
                     </div>
@@ -69,9 +69,9 @@
                         </p:column>
                         <p:column>
                             <p:commandButton styleClass="btn btn-warning btn-block" action="#{componentesProjetosController.prepareEdit}" oncomplete="aparecer()"
-                                             value="Editar" update="@form"/>
+                                             value="Editar" update="@all"/>
                             <p:commandButton styleClass="btn btn-danger btn-block" action="#{componentesProjetosController.destroy}"
-                                             value="Excluir" update="@form"/>
+                                             value="Excluir" update="@all"/>
                         </p:column>
                     </p:dataTable>
 
