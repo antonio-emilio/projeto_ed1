@@ -45,7 +45,7 @@
                         </p:dataTable>
                         <h:commandLink>
                             <p:commandButton styleClass="btn btn-success btn-block"
-                                             value="Gerar .CSV" update="@all"/>
+                                             value="Gerar .CSV" update="@form"/>
 
                             <p:dataExporter type="csv" target="ordem" fileName="ordem_servico"/>
                         </h:commandLink>
@@ -60,7 +60,7 @@
                             </p:column>
                             <p:column>
                                 <p:commandButton styleClass="btn btn-success btn-block" action="#{getuserdata.definirValor(item.id)}" oncomplete="aparecer()"
-                                                 value="Gerar" update="@all" style="width: 100px;"/>
+                                                 value="Gerar" update="@form" style="width: 100px;"/>
                             </p:column>
                         </p:dataTable>
                     </div>
