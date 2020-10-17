@@ -18,92 +18,90 @@
                 document.getElementById("formulario").style.display = "none";
             }
         </SCRIPT>
-        <h:body class="hold-transition skin-blue sidebar-mini">
-            <div class="content-wrapper content">
-                <h:form>
-                    <div id="formulario" style="display: none;">
-                        <p:panelGrid columns="2" style="margin: auto; min-height:  100%; min-width: 100%;">
-                            <p:outputLabel value="#{bundle.CreateComponentesLabel_nome}" for="nome" />
-                            <p:inputText id="nome" value="#{componentesController.selected.nome}" title="#{bundle.CreateComponentesTitle_nome}" />
-                            <p:outputLabel value="#{bundle.CreateComponentesLabel_valor}" for="valor" />
-                            <p:inputText id="valor" value="#{componentesController.selected.valor}" title="#{bundle.CreateComponentesTitle_valor}" />
-                            <p:outputLabel value="#{bundle.CreateComponentesLabel_infoAdicional}" for="infoAdicional" />
-                            <p:inputText id="infoAdicional" value="#{componentesController.selected.infoAdicional}" title="#{bundle.CreateComponentesTitle_infoAdicional}" />
-                            <p:outputLabel value="#{bundle.CreateComponentesLabel_url}" for="url" />
-                            <p:inputText id="url" value="#{componentesController.selected.url}" title="#{bundle.CreateComponentesTitle_url}" />
-                            <p:outputLabel value="#{bundle.CreateComponentesLabel_quantidade}" for="quantidade" />
-                            <p:inputText id="quantidade" value="#{componentesController.selected.quantidade}" title="#{bundle.CreateComponentesTitle_quantidade}" />
-                            <p:outputLabel value="#{bundle.CreateComponentesLabel_endereco}" for="endereco" />
-                            <p:inputText id="endereco" value="#{componentesController.selected.endereco}" title="#{bundle.CreateComponentesTitle_endereco}" />
-                            <p:outputLabel value="#{bundle.CreateComponentesLabel_foto}" for="foto" />
-                            <p:inputText id="foto" value="#{componentesController.selected.foto}" title="#{bundle.CreateComponentesTitle_foto}" />
-                            <p:outputLabel value="#{bundle.CreateComponentesLabel_idCategoria}" for="idCategoria" />
-                            <p:selectOneMenu id="idCategoria" value="#{componentesController.selected.idCategoria}" title="#{bundle.CreateComponentesTitle_idCategoria}" >
-                                <f:selectItems value="#{categoriaController.itemsAvailableSelectOne}"/>
-                            </p:selectOneMenu>
-                        </p:panelGrid>
-                        <br/>
-                        <p:commandButton styleClass="btn btn-warning btn-block" action="#{componentesController.update}" oncomplete="desaparecer()"
-                                         value="Atualizar dados" update="@all"/>
-                        <br/>
 
-                    </div>
-                    <p:dataTable value="#{componentesController.items}" var="item" paginator="true" rows="15" style="font-size: 14px; text-align: center;">
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListComponentesTitle_nome}" />
-                            </f:facet>
-                            <h:outputText value="#{item.nome}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListComponentesTitle_valor}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.valor}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListComponentesTitle_infoAdicional}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.infoAdicional}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListComponentesTitle_url}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.url}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListComponentesTitle_quantidade}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.quantidade}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListComponentesTitle_endereco}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.endereco}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListComponentesTitle_idCategoria}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idCategoria.nome}"/>
-                        </p:column>
-                        <p:column>
-                            <p:commandButton styleClass="btn btn-warning btn-block" action="#{componentesController.prepareEdit}" oncomplete="aparecer()"
-                                             value="Editar" update="@all"/>
-                            <p:commandButton styleClass="btn btn-danger btn-block" action="#{componentesController.destroy}"
-                                             value="Excluir" update="@all"/>
-                        </p:column>
-                    </p:dataTable>
+            <h:form>
+                <div id="formulario" style="display: none;">
+                    <p:panelGrid columns="2" style="margin: auto; min-height:  100%; min-width: 100%;">
+                        <p:outputLabel value="#{bundle.CreateComponentesLabel_nome}" for="nome" />
+                        <p:inputText id="nome" value="#{componentesController.selected.nome}" title="#{bundle.CreateComponentesTitle_nome}" />
+                        <p:outputLabel value="#{bundle.CreateComponentesLabel_valor}" for="valor" />
+                        <p:inputText id="valor" value="#{componentesController.selected.valor}" title="#{bundle.CreateComponentesTitle_valor}" />
+                        <p:outputLabel value="#{bundle.CreateComponentesLabel_infoAdicional}" for="infoAdicional" />
+                        <p:inputText id="infoAdicional" value="#{componentesController.selected.infoAdicional}" title="#{bundle.CreateComponentesTitle_infoAdicional}" />
+                        <p:outputLabel value="#{bundle.CreateComponentesLabel_url}" for="url" />
+                        <p:inputText id="url" value="#{componentesController.selected.url}" title="#{bundle.CreateComponentesTitle_url}" />
+                        <p:outputLabel value="#{bundle.CreateComponentesLabel_quantidade}" for="quantidade" />
+                        <p:inputText id="quantidade" value="#{componentesController.selected.quantidade}" title="#{bundle.CreateComponentesTitle_quantidade}" />
+                        <p:outputLabel value="#{bundle.CreateComponentesLabel_endereco}" for="endereco" />
+                        <p:inputText id="endereco" value="#{componentesController.selected.endereco}" title="#{bundle.CreateComponentesTitle_endereco}" />
+                        <p:outputLabel value="#{bundle.CreateComponentesLabel_foto}" for="foto" />
+                        <p:inputText id="foto" value="#{componentesController.selected.foto}" title="#{bundle.CreateComponentesTitle_foto}" />
+                        <p:outputLabel value="#{bundle.CreateComponentesLabel_idCategoria}" for="idCategoria" />
+                        <p:selectOneMenu id="idCategoria" value="#{componentesController.selected.idCategoria}" title="#{bundle.CreateComponentesTitle_idCategoria}" >
+                            <f:selectItems value="#{categoriaController.itemsAvailableSelectOne}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <br/>
+                    <p:commandButton styleClass="btn btn-warning btn-block" action="#{componentesController.update}" oncomplete="desaparecer()"
+                                     value="Atualizar dados" update="@all"/>
+                    <br/>
 
+                </div>
+                <p:dataTable value="#{componentesController.items}" var="item" paginator="true" rows="15" style="font-size: 14px; text-align: center;">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListComponentesTitle_nome}" />
+                        </f:facet>
+                        <h:outputText value="#{item.nome}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListComponentesTitle_valor}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.valor}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListComponentesTitle_infoAdicional}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.infoAdicional}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListComponentesTitle_url}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.url}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListComponentesTitle_quantidade}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.quantidade}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListComponentesTitle_endereco}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.endereco}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListComponentesTitle_idCategoria}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idCategoria.nome}"/>
+                    </p:column>
+                    <p:column>
+                        <p:commandButton styleClass="btn btn-warning btn-block" action="#{componentesController.prepareEdit}" oncomplete="aparecer()"
+                                         value="Editar" update="@all"/>
+                        <p:commandButton styleClass="btn btn-danger btn-block" action="#{componentesController.destroy}"
+                                         value="Excluir" update="@all"/>
+                    </p:column>
+                </p:dataTable>
 
 
-                </h:form>
-            </div>
-        </h:body>
+
+            </h:form>
+
     </ui:define>
 
 

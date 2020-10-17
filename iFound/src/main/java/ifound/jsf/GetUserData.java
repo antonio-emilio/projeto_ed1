@@ -20,9 +20,9 @@ public class GetUserData {
     public static boolean work = false;
     public static String procura = "";
 
+
 // <============================================================================================================================================================================>
     public ArrayList<ComponentesProjetos> ordemProducao() {
-
         ArrayList<ComponentesProjetos> registro = new ArrayList<ComponentesProjetos>();
         Main.db = null;
         BD.ConectarBD();
@@ -71,8 +71,7 @@ public class GetUserData {
 
     // <============================================================================================================================================================================>
     public ArrayList<Componentes> procurarComponente() {
-
-        ArrayList<Componentes> registro = new ArrayList<Componentes>();
+        ArrayList<Componentes> registro2 = new ArrayList<Componentes>();
         Main.db = null;
         BD.ConectarBD();
         String sql = "SELECT * FROM componentes WHERE nome ILIKE '%" + procura + "%'";
@@ -94,7 +93,7 @@ public class GetUserData {
                 process.setQuantidade(rs.getInt("quantidade"));
                 process.setValor(rs.getDouble("valor"));
                 process.setNome(rs.getString("nome"));
-                registro.add(process);
+                registro2.add(process);
 
             }
 
@@ -109,7 +108,7 @@ public class GetUserData {
             Logger.getLogger(GetUserData.class.getName()).log(Level.SEVERE, null, ex);
 
         }
-        return registro;
+        return registro2;
 
     }
 

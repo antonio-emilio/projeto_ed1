@@ -14,7 +14,6 @@ success<?xml version="1.0" encoding="UTF-8"?>
         <link rel="shortcut icon" type="image/x-icon" href="#{resource['favicon/favicon-96x96.png']}" sizes="96x96"/>
         <link rel="manifest" href="manifest.json"/>
         <meta name="theme-color" content="#444"/>
-        <meta name="mobile-web-app-capable" content="yes"/>
         <f:loadBundle var="msg" basename="starter"/>
         <h:outputStylesheet library="css" name="starter.css"/>
     </ui:define>
@@ -42,19 +41,6 @@ success<?xml version="1.0" encoding="UTF-8"?>
     </ui:define>
 
 
-    <ui:define name="footer">
-        <a target="_blank"
-           href="https://github.com/adminfaces/">
-            Copyright (C) 2017 - AdminFaces
-        </a>
-
-        <div class="pull-right hidden-xs" style="color: gray">
-            <i>#{msg['starter.version']}</i>
-        </div>
-
-        <h:outputScript library="js" name="starter.js" target="head"/>
-        
-    </ui:define>
 
 
 </ui:composition>
