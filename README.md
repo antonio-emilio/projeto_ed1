@@ -11,17 +11,17 @@ Devido trabalharmos com tais componentes no dia a dia, vivenciamos a dificuldade
 
 ### Documentação
 Com o iFound, você poderá:
-* Cadastrar categorias;
-* Visualizar categorias criadas;
-* Cadastrar componentes;
-* Visualizar componentes;
-* Procurar componentes;
-* Obter a localização de cada componente cadastrado;
-* Obter informações detalhadas sobre componentes;
-* Dar baixa de estoque e aumentar estoque;
-* Visualizar componentes que estão com o estoque baixo;
-* Cadastrar projetos e componentes necessários, assim como quantidades;
-* Gerar ordem de produção com quantos e quais componentes são necessários para um determinado projeto;
+* Cadastrar categorias; :white_check_mark:
+* Visualizar categorias criadas; :white_check_mark:
+* Cadastrar componentes; :white_check_mark:
+* Visualizar componentes; :white_check_mark:
+* Procurar componentes; :white_check_mark:
+* Obter a localização de cada componente cadastrado; :white_check_mark:
+* Obter informações detalhadas sobre componentes; :white_check_mark:
+* Dar baixa de estoque e aumentar estoque; :white_check_mark:
+* Visualizar componentes que estão com o estoque baixo; 
+* Cadastrar projetos e componentes necessários, assim como quantidades; :white_check_mark:
+* Gerar ordem de produção com quantos e quais componentes são necessários para um determinado projeto; :white_check_mark:
 
 ### Tecnologia
 O iFound utilizará a linguagem de programação Java, com o framework JSF E Primefaces.
