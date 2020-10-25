@@ -21,6 +21,7 @@ public class GetUserData {
     public static String procura = "";
     ArrayList<ComponentesProjetos> registro;
     ArrayList<Componentes> registro2;
+    public static String localizacao = "";
 
 // <============================================================================================================================================================================>
     public ArrayList<ComponentesProjetos> ordemProducao() {
@@ -181,6 +182,25 @@ public class GetUserData {
         procura = procurar;
 
     }
+
+    public void definirImagem(String imagem) {
+        localizacao = imagem;
+
+    }
+
+    public String retornaImagem() throws InterruptedException {
+        localizacao = localizacao;
+        if (localizacao.equals("SETOR A")){
+            System.out.print("LALALALALA");
+            return "/resources/images/p1.png";
+        }
+        System.out.print(localizacao);
+        System.out.print("VISH");
+        return "";
+
+    }
+    
+    
 // <============================================================================================================================================================================>
 
     public void subtrairEstoque(String identificador, int quantidade) {

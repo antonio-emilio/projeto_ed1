@@ -14,7 +14,7 @@
                 document.getElementById("formulario").style.display = "inline";
             }
             function desaparecer() {
-                document.getElementById("formulario").style.display = "none";
+                window.location.href = "mapa.jsf";
             }
         </SCRIPT>
         <h:form >
@@ -25,6 +25,11 @@
                         <small>Encontrou seu componente?</small>
                     </h1>
                 </section>
+                <p:dialog header="Aguarde um momento..." id="popup" widgetVar="dlg1" modal="true" resizable="false" draggable="false" closable="true">
+                    <div style="text-align: center">
+                        <p:graphicImage library="images" value="#{FacesContext.getCurrentInstance().getExternalContext()}#{getuserdata.retornaImagem()}" width="300"/>
+                    </div>
+                </p:dialog>
                 <p:dataTable id="ordem" value="#{getuserdata.procurarComponente()}" var="item" paginator="true" rows="15" style="font-size: 14px; text-align: center;">
                     <p:column>
                         <f:facet name="header">
@@ -36,11 +41,13 @@
                         <f:facet name="header">
                             <h:outputText value="Localização"/>
                         </f:facet>
-                        <h:outputText value="#{item.endereco}"/>
+                        <p:commandButton styleClass="btn btn-success btn-block" action="#{getuserdata.definirImagem(item.endereco)}" onclick="desaparecer()"
+                                         value="#{item.endereco}"/>
                     </p:column>
 
 
                 </p:dataTable>
+
             </div>
             <p:panelGrid columns="2" style="margin: auto; min-height:  100%; min-width: 100%;">
                 <p:outputLabel value="#{bundle.CreateProjetoLabel_foto}" for="foto" />

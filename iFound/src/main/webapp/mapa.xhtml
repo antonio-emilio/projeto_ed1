@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="#{layoutMB.template}"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:param name="renderBreadCrumb" value="false"/>
+
+    <ui:define name="title">
+        <SCRIPT type="text/javascript">
+            function aparecer() {
+                document.getElementById("formulario").style.display = "inline";
+            }
+            function desaparecer() {
+                document.getElementById("formulario").style.display = "none";
+            }
+        </SCRIPT>
+        <h:form >
+            <div id="formulario" style="display: block;">
+                <section class="content-header">
+                    <h1>
+                        Mapa
+                        <small>Seu componente está aqui!</small>
+                    </h1>
+                </section>
+                <div style="text-align: center">
+                    <p:graphicImage library="images" value="#{FacesContext.getCurrentInstance().getExternalContext()}#{getuserdata.retornaImagem()}" width="300"/>
+                </div>
+            </div>
+        </h:form>
+
+    </ui:define>
+
+
+</ui:composition>
