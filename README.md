@@ -19,7 +19,7 @@ Com o iFound, você poderá:
 * Obter a localização de cada componente cadastrado; :white_check_mark:
 * Obter informações detalhadas sobre componentes; :white_check_mark:
 * Dar baixa de estoque e aumentar estoque; :white_check_mark:
-* Visualizar componentes que estão com o estoque baixo; 
+* Visualizar componentes que estão com o estoque baixo; :white_check_mark:
 * Cadastrar projetos e componentes necessários, assim como quantidades; :white_check_mark:
 * Gerar ordem de produção com quantos e quais componentes são necessários para um determinado projeto; :white_check_mark:
 
