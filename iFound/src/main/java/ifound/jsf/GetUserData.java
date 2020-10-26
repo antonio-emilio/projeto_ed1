@@ -190,19 +190,72 @@ public class GetUserData {
 
     public String retornaImagem() throws InterruptedException {
         localizacao = localizacao;
-        if (localizacao.equals("SETOR A")){
-            System.out.print("LALALALALA");
+        if (localizacao.equals("PRATELEIRA 1")) {
             return "/resources/images/p1.png";
         }
-        System.out.print(localizacao);
-        System.out.print("VISH");
+        if (localizacao.equals("PRATELEIRA 2")) {
+            return "/resources/images/p2.png";
+        }
+        if (localizacao.equals("PRATELEIRA 3")) {
+            return "/resources/images/p3.png";
+        }
+        if (localizacao.equals("PRATELEIRA 4")) {
+            return "/resources/images/p4.png";
+        }
+        if (localizacao.equals("PRATELEIRA 5")) {
+            return "/resources/images/p5.png";
+        }
+        if (localizacao.equals("PRATELEIRA 6")) {
+            return "/resources/images/p6.png";
+        }
+        if (localizacao.equals("PRATELEIRA 7")) {
+            return "/resources/images/p7.png";
+        }
+        if (localizacao.equals("PRATELEIRA 8")) {
+            return "/resources/images/p8.png";
+        }
+        if (localizacao.equals("PRATELEIRA 9")) {
+            return "/resources/images/p9.png";
+        }
+        if (localizacao.equals("PRATELEIRA 10")) {
+            return "/resources/images/p10.png";
+        }
+        if (localizacao.equals("PRATELEIRA 11")) {
+            return "/resources/images/p11.png";
+        }
+        if (localizacao.equals("PRATELEIRA 12")) {
+            return "/resources/images/p12.png";
+        }
+        if (localizacao.equals("COLUNA 1")) {
+            return "/resources/images/p1.png";
+        }
+        if (localizacao.equals("COLUNA 2")) {
+            return "/resources/images/p2.png";
+        }
+        if (localizacao.equals("COLUNA 3")) {
+            return "/resources/images/p3.png";
+        }
+        if (localizacao.equals("COLUNA 4")) {
+            return "/resources/images/p4.png";
+        }
+        if (localizacao.equals("COLUNA 5")) {
+            return "/resources/images/p5.png";
+        }
+        if (localizacao.equals("COLUNA 6")) {
+            return "/resources/images/p6.png";
+        }
+        if (localizacao.equals("COLUNA 7")) {
+            return "/resources/images/p7.png";
+        }
+        if (localizacao.equals("COLUNA 8")) {
+            return "/resources/images/p8.png";
+        }
+
         return "";
 
     }
-    
-    
-// <============================================================================================================================================================================>
 
+// <============================================================================================================================================================================>
     public void subtrairEstoque(String identificador, int quantidade) {
         Main.db = null;
         BD.ConectarBD();

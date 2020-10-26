@@ -22,7 +22,32 @@
                 <p:outputLabel value="#{bundle.CreateComponentesLabel_quantidade}" for="quantidade" />
                 <p:inputText id="quantidade" value="#{componentesController.selected.quantidade}" title="#{bundle.CreateComponentesTitle_quantidade}" />
                 <p:outputLabel value="#{bundle.CreateComponentesLabel_endereco}" for="endereco" />
-                <p:inputText id="endereco" value="#{componentesController.selected.endereco}" title="#{bundle.CreateComponentesTitle_endereco}" />
+
+                <p:selectOneMenu id="endereco" value="#{componentesController.selected.endereco}" title="#{bundle.CreateComponentesTitle_endereco}">
+                    <f:selectItem itemLabel="Localizacao" itemValue="" />
+                    <f:selectItem itemLabel="PRATELEIRA 1" itemValue="PRATELEIRA 1" />
+                    <f:selectItem itemLabel="PRATELEIRA 2" itemValue="PRATELEIRA 2" />
+                    <f:selectItem itemLabel="PRATELEIRA 3" itemValue="PRATELEIRA 3" />
+                    <f:selectItem itemLabel="PRATELEIRA 4" itemValue="PRATELEIRA 4" />
+                    <f:selectItem itemLabel="PRATELEIRA 5" itemValue="PRATELEIRA 5" />
+                    <f:selectItem itemLabel="PRATELEIRA 6" itemValue="PRATELEIRA 6" />
+                    <f:selectItem itemLabel="PRATELEIRA 7" itemValue="PRATELEIRA 7" />
+                    <f:selectItem itemLabel="PRATELEIRA 8" itemValue="PRATELEIRA 8" />
+                    <f:selectItem itemLabel="PRATELEIRA 9" itemValue="PRATELEIRA 9" />
+                    <f:selectItem itemLabel="PRATELEIRA 10" itemValue="PRATELEIRA 10" />
+                    <f:selectItem itemLabel="PRATELEIRA 11" itemValue="PRATELEIRA 11" />
+                    <f:selectItem itemLabel="PRATELEIRA 12" itemValue="PRATELEIRA 12" />
+                    <f:selectItem itemLabel="COLUNA 1" itemValue="COLUNA 1" />
+                    <f:selectItem itemLabel="COLUNA 2" itemValue="COLUNA 2" />
+                    <f:selectItem itemLabel="COLUNA 3" itemValue="COLUNA 3" />
+                    <f:selectItem itemLabel="COLUNA 4" itemValue="COLUNA 4" />
+                    <f:selectItem itemLabel="COLUNA 5" itemValue="COLUNA 5" />
+                    <f:selectItem itemLabel="COLUNA 6" itemValue="COLUNA 6" />
+                    <f:selectItem itemLabel="COLUNA 7" itemValue="COLUNA 7" />
+                    <f:selectItem itemLabel="COLUNA 8" itemValue="COLUNA 8" />
+
+                </p:selectOneMenu>
+
                 <p:outputLabel value="#{bundle.CreateComponentesLabel_foto}" for="foto" />
                 <p:inputText id="foto" value="#{componentesController.selected.foto}" title="#{bundle.CreateComponentesTitle_foto}" />
                 <p:outputLabel value="#{bundle.CreateComponentesLabel_idCategoria}" for="idCategoria" />
