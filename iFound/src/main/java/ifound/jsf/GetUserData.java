@@ -21,6 +21,7 @@ public class GetUserData {
     public static String procura = "";
     ArrayList<ComponentesProjetos> registro;
     ArrayList<Componentes> registro2;
+    ArrayList<Componentes> registro3;
     public static String localizacao = "";
 
 // <============================================================================================================================================================================>
@@ -129,6 +130,50 @@ public class GetUserData {
         return registro2;
 
     }
+    public ArrayList<Componentes> baixoEstoque() {
+        if (registro3 != null) {
+            return registro3;
+        }
+        registro3 = new ArrayList<Componentes>();
+        Main.db = null;
+        BD.ConectarBD();
+        String sql = "SELECT * FROM componentes WHERE quantidade <= 20";
+
+        try {
+            Main.sql = Main.db.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        ResultSet rs = null;
+        try {
+            rs = Main.sql.executeQuery(sql);
+            System.out.println(sql);
+            while (rs.next()) {
+                Componentes process = new Componentes();
+                process.setEndereco(rs.getString("endereco"));
+                process.setQuantidade(rs.getInt("quantidade"));
+                process.setValor(rs.getDouble("valor"));
+                process.setNome(rs.getString("nome"));
+                registro3.add(process);
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        try {
+            Main.db.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(GetUserData.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        return registro3;
+
+    }
 
 // <============================================================================================================================================================================>
     public String nomeComponente(String identificador) {
@@ -189,7 +234,6 @@ public class GetUserData {
     }
 
     public String retornaImagem() throws InterruptedException {
-        localizacao = localizacao;
         if (localizacao.equals("PRATELEIRA 1")) {
             return "/resources/images/p1.png";
         }
@@ -227,28 +271,28 @@ public class GetUserData {
             return "/resources/images/p12.png";
         }
         if (localizacao.equals("COLUNA 1")) {
-            return "/resources/images/p1.png";
+            return "/resources/images/c1.png";
         }
         if (localizacao.equals("COLUNA 2")) {
-            return "/resources/images/p2.png";
+            return "/resources/images/c2.png";
         }
         if (localizacao.equals("COLUNA 3")) {
-            return "/resources/images/p3.png";
+            return "/resources/images/c3.png";
         }
         if (localizacao.equals("COLUNA 4")) {
-            return "/resources/images/p4.png";
+            return "/resources/images/c4.png";
         }
         if (localizacao.equals("COLUNA 5")) {
-            return "/resources/images/p5.png";
+            return "/resources/images/c5.png";
         }
         if (localizacao.equals("COLUNA 6")) {
-            return "/resources/images/p6.png";
+            return "/resources/images/c6.png";
         }
         if (localizacao.equals("COLUNA 7")) {
-            return "/resources/images/p7.png";
+            return "/resources/images/c7.png";
         }
         if (localizacao.equals("COLUNA 8")) {
-            return "/resources/images/p8.png";
+            return "/resources/images/c8.png";
         }
 
         return "";
