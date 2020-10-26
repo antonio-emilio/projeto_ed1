@@ -41,7 +41,7 @@
                         <f:facet name="header">
                             <h:outputText value="Localização"/>
                         </f:facet>
-                        <p:commandButton styleClass="btn btn-success btn-block" action="#{getuserdata.definirImagem(item.endereco)}" onclick="desaparecer()"
+                        <p:commandButton styleClass="btn btn-success btn-block" action="#{getuserdata.definirImagem(item.endereco)}" oncomplete="desaparecer()"
                                          value="#{item.endereco}"/>
                     </p:column>
 
