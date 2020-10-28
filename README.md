@@ -24,7 +24,7 @@ Com o iFound, você poderá:
 * Gerar ordem de produção com quantos e quais componentes são necessários para um determinado projeto; :white_check_mark:
 
 ### Tecnologia
-O iFound utilizará a linguagem de programação Java, com o framework JSF E Primefaces.
+O iFound utilizará a linguagem de programação Java, com o framework JSF E Primefaces. Será utilizado os conceitos de Classe (Tipo Abstrato de Dados em JAVA), Pilha, com conexão ao banco de dados PostgreSQL.
 
 ### Autores
 Os autores do iFound são:
