@@ -20,6 +20,8 @@ public class GetUserData {
     public static boolean work = false;
     public static String procura = "";
     ArrayList<ComponentesProjetos> registro;
+    ArrayList<ComponentesProjetos> registro6;
+    ArrayList<ordemServico> registro5;
     ArrayList<Componentes> registro2;
     ArrayList<Componentes> registro3;
     public static String localizacao = "";
@@ -78,6 +80,104 @@ public class GetUserData {
         }
         work = false;
         return registro;
+
+    }
+    
+    public ArrayList<ComponentesProjetos> ordemProducaoTabela() {
+
+        if (registro6 != null) {
+            return registro6;
+        }
+
+        registro6 = new ArrayList<ComponentesProjetos>();
+        Main.db = null;
+        BD.ConectarBD();
+        String sql = "SELECT quantidade,(SELECT nome FROM componentes WHERE id = id_componentes),id_componentes FROM componentes_projetos WHERE id_projeto IN (SELECT projeto FROM ordem_servico ORDER BY id_ordem_servico DESC LIMIT 1)";
+
+        try {
+            Main.sql = Main.db.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        ResultSet rs = null;
+        try {
+            rs = Main.sql.executeQuery(sql);
+            System.out.println(sql);
+            while (rs.next()) {
+                ComponentesProjetos process = new ComponentesProjetos();
+                process.setObservacao(rs.getString("nome"));
+                process.setQuantidade(rs.getInt("quantidade"));
+                int quantidade = obterqntd(rs.getString("id_componentes"));
+                quantidade = quantidade - process.getQuantidade();
+                if (work == true) {
+                    subtrairEstoque(rs.getString("id_componentes"), quantidade);
+                }
+
+                registro6.add(process);
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        try {
+            Main.db.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(GetUserData.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        work = false;
+        return registro6;
+
+    }
+// <============================================================================================================================================================================>
+    public ArrayList<ordemServico> ordemServico() {
+
+        if (registro5 != null) {
+            return registro5;
+        }
+
+        registro5 = new ArrayList<ordemServico>();
+        Main.db = null;
+        BD.ConectarBD();
+        String sql = "SELECT foto FROM projeto WHERE id IN (SELECT projeto FROM ordem_servico ORDER BY id_ordem_servico ASC LIMIT 1) LIMIT 1";
+
+        try {
+            Main.sql = Main.db.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        ResultSet rs = null;
+        try {
+            rs = Main.sql.executeQuery(sql);
+            System.out.println(sql);
+            while (rs.next()) {
+                ordemServico process = new ordemServico();
+                process.setProjeto(rs.getString("foto"));
+
+                registro5.add(process);
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        try {
+            Main.db.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(GetUserData.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+  
+        return registro5;
 
     }
 
@@ -298,6 +398,9 @@ public class GetUserData {
         return "";
 
     }
+    public void enableDelete() throws InterruptedException {
+        work = true;
+    }
 
 // <============================================================================================================================================================================>
     public void subtrairEstoque(String identificador, int quantidade) {
@@ -356,6 +459,39 @@ public class GetUserData {
                     .getName()).log(Level.SEVERE, null, ex);
 
         }
+
+    }
+    
+    
+    public static void excluirRegistro() {
+        Main.db = null;
+        BD.ConectarBD();
+        String sql = "DELETE FROM ordem_servico WHERE id_ordem_servico IN (SELECT id_ordem_servico FROM ordem_servico ORDER BY id_ordem_servico ASC LIMIT 1) ";
+
+        try {
+            Main.sql = Main.db.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        ResultSet rs = null;
+        try {
+            System.out.println(sql);
+            if (work == true)
+                Main.sql.executeQuery(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        try {
+            Main.db.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(GetUserData.class
+                    .getName()).log(Level.SEVERE, null, ex);
+
+        }
+        work = false;
 
     }
 

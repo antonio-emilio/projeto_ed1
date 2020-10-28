@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="#{layoutMB.template}"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:param name="renderBreadCrumb" value="false"/>
+
+    <ui:define name="title">
+        <h:body onload="#{getuserdata.enableDelete()}"></h:body>
+        <h:form >
+            <p:dataTable id="tabela" value="#{getuserdata.ordemProducaoTabela()}" var="item" paginator="true" rows="15" style="font-size: 14px; text-align: center; display: none">
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nome"/>
+                    </f:facet>
+                    <h:outputText value="#{item.observacao}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Quantidade"/>
+                    </f:facet>
+                    <h:outputText value="#{item.quantidade}"/>
+                </p:column>
+
+
+            </p:dataTable>
+            <p:dataTable id="ordem" value="#{getuserdata.ordemServico()}" var="item" paginator="true" rows="15" style="font-size: 14px; text-align: center;">
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nome"/>
+                    </f:facet>
+                    <h:outputText value="#{item.projeto}"/>
+                </p:column>
+
+              </p:dataTable>
+
+                    <h:commandLink>
+                        <p:commandButton styleClass="btn btn-success btn-block"
+                                         value="Gerar .CSV" onclick="#{getuserdata.excluirRegistro()}"/>
+
+                        <p:dataExporter type="csv" target="tabela" fileName="ordem_servico"/>
+                    </h:commandLink>
+
+
+        </h:form>
+
+    </ui:define>
+
+
+</ui:composition>

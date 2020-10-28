@@ -8,7 +8,7 @@ public class BD {
         //Método responsável pela conexão direta com o banco de dados.
         try {
             Class.forName("org.postgresql.Driver");
-            String sConnectionString = "jdbc:postgresql://server01.matsoftwares.com.br:5432/ed1";
+            String sConnectionString = "jdbc:postgresql://35.222.222.223:5432/ed1";
             Main.db = DriverManager.getConnection(sConnectionString, Main.username, Main.password);
             Main.dbmd = Main.db.getMetaData();
             Main.sql = Main.db.createStatement();
