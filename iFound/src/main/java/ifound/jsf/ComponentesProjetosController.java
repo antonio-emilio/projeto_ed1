@@ -89,6 +89,17 @@ public class ComponentesProjetosController implements Serializable {
             return null;
         }
     }
+    
+    public String generateServiceOrder() {
+        try {
+            GetUserData.insertServiceOrder(current.getIdProjeto());
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("ComponentesProjetosCreated"));
+            return prepareCreate();
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            return null;
+        }
+    }
 
     public String prepareEdit() {
         current = (ComponentesProjetos) getItems().getRowData();

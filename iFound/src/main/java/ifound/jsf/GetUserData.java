@@ -329,6 +329,35 @@ public class GetUserData {
         }
 
     }
+    public static void insertServiceOrder(Projeto proj) {
+        Main.db = null;
+        BD.ConectarBD();
+        String sql = "INSERT INTO ordem_servico (projeto) VALUES (" + proj.getId() + ");";
+
+        try {
+            Main.sql = Main.db.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        ResultSet rs = null;
+        try {
+            System.out.println(sql);
+            Main.sql.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        try {
+            Main.db.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(GetUserData.class
+                    .getName()).log(Level.SEVERE, null, ex);
+
+        }
+
+    }
 
     public int obterqntd(String identificador) {
         Main.db = null;
