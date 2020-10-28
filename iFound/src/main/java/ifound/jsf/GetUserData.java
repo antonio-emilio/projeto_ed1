@@ -82,7 +82,7 @@ public class GetUserData {
         return registro;
 
     }
-    
+
     public ArrayList<ComponentesProjetos> ordemProducaoTabela() {
 
         if (registro6 != null) {
@@ -135,6 +135,7 @@ public class GetUserData {
 
     }
 // <============================================================================================================================================================================>
+
     public ArrayList<ordemServico> ordemServico() {
 
         if (registro5 != null) {
@@ -176,7 +177,7 @@ public class GetUserData {
             Logger.getLogger(GetUserData.class.getName()).log(Level.SEVERE, null, ex);
 
         }
-  
+
         return registro5;
 
     }
@@ -230,6 +231,7 @@ public class GetUserData {
         return registro2;
 
     }
+
     public ArrayList<Componentes> baixoEstoque() {
         if (registro3 != null) {
             return registro3;
@@ -398,6 +400,7 @@ public class GetUserData {
         return "";
 
     }
+
     public void enableDelete() throws InterruptedException {
         work = true;
     }
@@ -432,10 +435,12 @@ public class GetUserData {
         }
 
     }
-    public static void insertServiceOrder(Projeto proj) {
+    // <============================================================================================================================================================================>
+
+    public static void insertServiceOrder(Projeto proj, int quantidade) {
         Main.db = null;
         BD.ConectarBD();
-        String sql = "INSERT INTO ordem_servico (projeto) VALUES (" + proj.getId() + ");";
+        String sql = "INSERT INTO ordem_servico (projeto,quantidade) VALUES (" + proj.getId() + "," + quantidade + ");";
 
         try {
             Main.sql = Main.db.createStatement();
@@ -461,39 +466,44 @@ public class GetUserData {
         }
 
     }
-    
-    
-    public static void excluirRegistro() {
-        Main.db = null;
-        BD.ConectarBD();
-        String sql = "DELETE FROM ordem_servico WHERE id_ordem_servico IN (SELECT id_ordem_servico FROM ordem_servico ORDER BY id_ordem_servico ASC LIMIT 1) ";
 
-        try {
-            Main.sql = Main.db.createStatement();
-        } catch (SQLException e) {
-            e.printStackTrace();
+    // <============================================================================================================================================================================>
+    public void excluirRegistro() {
 
-        }
 
-        ResultSet rs = null;
-        try {
-            System.out.println(sql);
-            if (work == true)
+
+            Main.db = null;
+            BD.ConectarBD();
+            String sql = "DELETE FROM ordem_servico WHERE id_ordem_servico IN (SELECT id_ordem_servico FROM ordem_servico ORDER BY id_ordem_servico ASC LIMIT 1) ";
+
+            try {
+                Main.sql = Main.db.createStatement();
+            } catch (SQLException e) {
+                e.printStackTrace();
+
+            }
+
+            ResultSet rs = null;
+            try {
+
+                System.out.println(sql);
                 Main.sql.executeQuery(sql);
-        } catch (SQLException e) {
-            e.printStackTrace();
 
-        }
-        try {
-            Main.db.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(GetUserData.class
-                    .getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException e) {
+                e.printStackTrace();
 
-        }
-        work = false;
+            }
+            try {
+                Main.db.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(GetUserData.class
+                        .getName()).log(Level.SEVERE, null, ex);
+
+            }
+        
 
     }
+// <============================================================================================================================================================================>
 
     public int obterqntd(String identificador) {
         Main.db = null;

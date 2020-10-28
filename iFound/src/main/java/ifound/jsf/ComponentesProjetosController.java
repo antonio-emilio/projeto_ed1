@@ -92,7 +92,7 @@ public class ComponentesProjetosController implements Serializable {
     
     public String generateServiceOrder() {
         try {
-            GetUserData.insertServiceOrder(current.getIdProjeto());
+            GetUserData.insertServiceOrder(current.getIdProjeto(), current.getQuantidade());
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("ComponentesProjetosCreated"));
             return prepareCreate();
         } catch (Exception e) {
