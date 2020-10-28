@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ifound.entity;
 
 import java.io.Serializable;
@@ -23,10 +19,7 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-/**
- *
- * @author Conta
- */
+
 @Entity
 @Table(name = "componentes")
 @XmlRootElement
@@ -51,7 +44,6 @@ public class Componentes implements Serializable {
     @Size(max = 2147483647)
     @Column(name = "nome")
     private String nome;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "valor")
     private Double valor;
     @Size(max = 2147483647)
@@ -182,7 +174,6 @@ public class Componentes implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Componentes)) {
             return false;
         }

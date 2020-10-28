@@ -5,10 +5,6 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by rmpestano on 9/7/14.
- * class which holds database pagination metadata
- */
 public class Filter<T extends Serializable> {
     private T entity;
     private int first;
