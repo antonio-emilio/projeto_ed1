@@ -145,7 +145,7 @@ public class GetUserData {
         registro5 = new ArrayList<ordemServico>();
         Main.db = null;
         BD.ConectarBD();
-        String sql = "SELECT foto FROM projeto WHERE id IN (SELECT projeto FROM ordem_servico ORDER BY id_ordem_servico ASC LIMIT 1) LIMIT 1";
+        String sql = "SELECT foto,(SELECT quantidade FROM ordem_servico ORDER BY id_ordem_servico ASC LIMIT 1)  FROM projeto WHERE id IN (SELECT projeto FROM ordem_servico ORDER BY id_ordem_servico ASC LIMIT 1) LIMIT 1";
 
         try {
             Main.sql = Main.db.createStatement();
@@ -161,6 +161,7 @@ public class GetUserData {
             while (rs.next()) {
                 ordemServico process = new ordemServico();
                 process.setProjeto(rs.getString("foto"));
+                process.setId(rs.getInt("quantidade"));
 
                 registro5.add(process);
 

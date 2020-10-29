@@ -9,44 +9,48 @@
     <ui:param name="renderBreadCrumb" value="false"/>
 
     <ui:define name="title">
-        <h:body onload="#{getuserdata.enableDelete()}">
-            <h:form >
-                <p:dataTable id="tabela" value="#{getuserdata.ordemProducaoTabela()}" var="item" paginator="true" rows="15" style="font-size: 14px; text-align: center; display: none">
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="Nome"/>
-                        </f:facet>
-                        <h:outputText value="#{item.observacao}"/>
-                    </p:column>
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="Quantidade"/>
-                        </f:facet>
-                        <h:outputText value="#{item.quantidade}"/>
-                    </p:column>
+        <h:form >
+            <p:dataTable id="tabela" value="#{getuserdata.ordemProducaoTabela()}" var="item" paginator="true" rows="15" style="font-size: 14px; text-align: center; display: none">
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nome"/>
+                    </f:facet>
+                    <h:outputText value="#{item.observacao}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Quantidade"/>
+                    </f:facet>
+                    <h:outputText value="#{item.quantidade}"/>
+                </p:column>
 
 
-                </p:dataTable>
-                <p:dataTable id="ordem" value="#{getuserdata.ordemServico()}" var="item" paginator="true" rows="15" style="font-size: 14px; text-align: center;">
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="Nome"/>
-                        </f:facet>
-                        <h:outputText value="#{item.projeto}"/>
-                    </p:column>
+            </p:dataTable>
+            <p:dataTable id="ordem" value="#{getuserdata.ordemServico()}" var="item" paginator="true" rows="15" style="font-size: 14px; text-align: center;">
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nome"/>
+                    </f:facet>
+                    <h:outputText value="#{item.projeto}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Quantidade"/>
+                    </f:facet>
+                    <h:outputText value="#{item.id}"/>
+                </p:column>
 
-                </p:dataTable>
+            </p:dataTable>
 
-                <h:commandLink>
-                    <p:commandButton styleClass="btn btn-success btn-block"
-                                     value="Gerar .CSV" action="#{getuserdata.excluirRegistro()}" update="@all"/>
+            <h:commandLink>
+                <p:commandButton styleClass="btn btn-success btn-block"
+                                 value="Gerar .CSV" action="#{getuserdata.excluirRegistro()}" update="@all"/>
 
-                    <p:dataExporter type="csv" target="tabela" fileName="ordem_servico"/>
-                </h:commandLink>
+                <p:dataExporter type="csv" target="tabela" fileName="ordem_servico"/>
+            </h:commandLink>
 
 
-            </h:form>
-        </h:body>
+        </h:form>
 
     </ui:define>
 
