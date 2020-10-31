@@ -24,7 +24,7 @@ Com o iFound, você poderá:
 * Gerar ordem de produção com quantos e quais componentes são necessários para um determinado projeto; :white_check_mark:
 
 ### Tecnologia
-O iFound utilizará a linguagem de programação Java, com o framework JSF E Primefaces. Será utilizado os conceitos de Classe (Tipo Abstrato de Dados em JAVA), Pilha, com conexão ao banco de dados PostgreSQL.
+O iFound utilizará a linguagem de programação Java, com o framework JSF E Primefaces. Será utilizado os conceitos de Classe (Tipo Abstrato de Dados em JAVA), Pilha, listas sequenciais lineares, conceito de deque para interação com o banco de dados, sendo este o PostgreSQL.
 
 ### Autores
 Os autores do iFound são:
@@ -38,9 +38,11 @@ Ambos alunos de Engenharia de Computação, da Universidade Federal de Goiás.
 
 
 ### Banco de Dados 
+No banco de dados, foi utilizado a tecnologia de relacionamento entre tabelas, chaves primárias e estrangeiras.
 <img src="https://media.discordapp.net/attachments/692689155943301195/757297936466968586/unknown.png?width=943&height=672">
 
 ### Layout 
+Na interface, buscou-se trazer um conceito de dashboard administrativo de fácil manipulação. As funcionalidades são separadas por categoria no menu lateral, com a possibilidade de usar um campo de busca para facilitar a procura.
 <img src="https://cdn.discordapp.com/attachments/764880223560794172/766489796716527646/1.png">
 
 <img src="https://media.discordapp.net/attachments/764880223560794172/764880244330594304/unknown.png?width=1358&height=677">
