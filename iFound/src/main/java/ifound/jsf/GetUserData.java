@@ -82,7 +82,8 @@ public class GetUserData {
         return registro;
 
     }
-
+// <============================================================================================================================================================================>
+    
     public ArrayList<ComponentesProjetos> ordemProducaoTabela() {
 
         if (registro6 != null) {
@@ -232,7 +233,8 @@ public class GetUserData {
         return registro2;
 
     }
-
+// <============================================================================================================================================================================>
+    
     public ArrayList<Componentes> baixoEstoque() {
         if (registro3 != null) {
             return registro3;
@@ -330,12 +332,14 @@ public class GetUserData {
         procura = procurar;
 
     }
-
+// <============================================================================================================================================================================>
+    
     public void definirImagem(String imagem) {
         localizacao = imagem;
 
     }
-
+// <============================================================================================================================================================================>
+    
     public String retornaImagem() throws InterruptedException {
         if (localizacao.equals("PRATELEIRA 1")) {
             return "/resources/images/p1.png";
@@ -401,7 +405,8 @@ public class GetUserData {
         return "";
 
     }
-
+// <============================================================================================================================================================================>
+    
     public void enableDelete() throws InterruptedException {
         work = true;
     }
