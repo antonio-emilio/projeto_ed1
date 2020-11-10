@@ -545,4 +545,141 @@ public class GetUserData {
         }
         return text;
     }
+
+    public int numero_os_abertas() {
+        Main.db = null;
+        int text = 0;
+        BD.ConectarBD();
+        String sql = "SELECT count(*) FROM ordem_servico";
+
+        try {
+            Main.sql = Main.db.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        ResultSet rs = null;
+        try {
+            System.out.println(sql);
+            rs = Main.sql.executeQuery(sql);
+            while (rs.next()) {
+                text = rs.getInt("count");
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        try {
+            Main.db.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(GetUserData.class
+                    .getName()).log(Level.SEVERE, null, ex);
+
+        }
+        return text;
+    }
+    public int numero_componentes() {
+        Main.db = null;
+        int text = 0;
+        BD.ConectarBD();
+        String sql = "SELECT count(*) FROM componentes;";
+
+        try {
+            Main.sql = Main.db.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        ResultSet rs = null;
+        try {
+            System.out.println(sql);
+            rs = Main.sql.executeQuery(sql);
+            while (rs.next()) {
+                text = rs.getInt("count");
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        try {
+            Main.db.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(GetUserData.class
+                    .getName()).log(Level.SEVERE, null, ex);
+
+        }
+        return text;
+    }
+    public int numero_projetos() {
+        Main.db = null;
+        int text = 0;
+        BD.ConectarBD();
+        String sql = "SELECT count(*) FROM projeto;";
+
+        try {
+            Main.sql = Main.db.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        ResultSet rs = null;
+        try {
+            System.out.println(sql);
+            rs = Main.sql.executeQuery(sql);
+            while (rs.next()) {
+                text = rs.getInt("count");
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        try {
+            Main.db.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(GetUserData.class
+                    .getName()).log(Level.SEVERE, null, ex);
+
+        }
+        return text;
+    }
+    public int numero_componentes_baixo_estoque() {
+        Main.db = null;
+        int text = 0;
+        BD.ConectarBD();
+        String sql = "SELECT count(*) FROM componentes WHERE quantidade < 20;";
+
+        try {
+            Main.sql = Main.db.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        ResultSet rs = null;
+        try {
+            System.out.println(sql);
+            rs = Main.sql.executeQuery(sql);
+            while (rs.next()) {
+                text = rs.getInt("count");
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        try {
+            Main.db.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(GetUserData.class
+                    .getName()).log(Level.SEVERE, null, ex);
+
+        }
+        return text;
+    }
 }

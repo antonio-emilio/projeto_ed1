@@ -2,20 +2,73 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                template="#{layoutMB.template}">
+                template="#{layoutMB.template}"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <ui:param name="renderBreadCrumb" value="false"/>
 
+
     <ui:define name="title">
-        <h2 class="align-center" style="box-shadow: black">
-            <p:graphicImage library="images" value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/icon.png" width="40"/> 
-            <p:graphicImage library="images" value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/logo.png" width="120"/>  
-        </h2>
-        <h5 class="align-center">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+        <h2 class="align-center">
             <small>
-            Software de organização de estoque para componentes eletrônicos.
+                Dashboard
             </small>
-        </h5>
+        </h2>
+        <h:panelGrid columns="4" style="width: 100%;">
+
+            <h:form>
+                <div class="w3-container w3-green w3-padding-16">
+                    <div class="w3-left"><i class="fa fa-dashboard w3-xxxlarge"></i></div>
+                    <div class="w3-center">
+                        <h3>Quantidade: #{getuserdata.numero_componentes()} </h3>
+                    </div>
+                    <div class="w3-clear"></div>
+                    <h4>Nº Componentes</h4>
+                </div>
+            </h:form>
+            <h:form style="margin-left: 20px; margin-right: 20px;">
+                <div class="w3-container w3-green w3-padding-16 w3-left-16">
+                    <div class="w3-left"><i class="fa fa-list w3-xxxlarge"></i></div>
+                    <div class="w3-center">
+                        <h3>Quantidade: #{getuserdata.numero_os_abertas()}</h3>
+                    </div>
+                    <div class="w3-clear"></div>
+                    <h4>O.S abertas</h4>
+                </div>
+            </h:form>
+            <h:form style="margin-right: 20px;">
+                <div class="w3-container w3-green w3-padding-16">
+                    <div class="w3-left"><i class="fa fa-gears w3-xxxlarge"></i></div>
+                    <div class="w3-center">
+                        <h3>Quantidade: #{getuserdata.numero_projetos()} </h3>
+                    </div>
+                    <div class="w3-clear"></div>
+                    <h4>Nº de Projetos</h4>
+                </div>
+            </h:form>
+            <h:form>
+                <div class="w3-container w3-red w3-padding-16">
+                    <div class="w3-left"><i class="fa fa-sign-out w3-xxxlarge"></i></div>
+                    <div class="w3-center">
+                        <h3>Quantidade: #{getuserdata.numero_componentes_baixo_estoque()} </h3>
+                    </div>
+                    <div class="w3-clear"></div>
+                    <h4>Comp. com baixo estoque</h4>
+                </div>
+            </h:form>
+        </h:panelGrid>
+        <div>
+            <h2 class="align-center" style="box-shadow: black">
+                <p:graphicImage library="images" value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/icon.png" width="40" style="box-shadow: #3a4f54"/> 
+                <p:graphicImage library="images" value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/logo.png" width="120" style="box-shadow: #3a4f54"/>  
+            </h2>
+            <h5 class="align-center">
+                <small>
+                    Software de organização de estoque para componentes eletrônicos.
+                </small>
+            </h5>
+        </div>
     </ui:define>
 
 
