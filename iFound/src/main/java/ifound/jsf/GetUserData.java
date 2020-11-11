@@ -648,6 +648,44 @@ public class GetUserData {
         }
         return text;
     }
+    public boolean is_user(String email, String senha) {
+        Main.db = null;
+        int text = 0;
+        BD.ConectarBD();
+        String sql = "SELECT count(*) FROM usuario WHERE login = '" + email + "' AND senha = '" + senha + "';";
+
+        try {
+            Main.sql = Main.db.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        ResultSet rs = null;
+        try {
+            System.out.println(sql);
+            rs = Main.sql.executeQuery(sql);
+            while (rs.next()) {
+                text = rs.getInt("count");
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        try {
+            Main.db.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(GetUserData.class
+                    .getName()).log(Level.SEVERE, null, ex);
+
+        }
+        if (text == 1){
+            return true;
+        } else {
+            return false;
+        }
+    }
     public int numero_componentes_baixo_estoque() {
         Main.db = null;
         int text = 0;

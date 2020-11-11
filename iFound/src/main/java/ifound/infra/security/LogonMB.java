@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.io.Serializable;
 
 import com.github.adminfaces.template.config.AdminConfig;
+import ifound.jsf.GetUserData;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 /**
@@ -37,9 +40,17 @@ public class LogonMB extends AdminSession implements Serializable {
 
 
     public void login() throws IOException {
-        currentUser = email;
-        Faces.getExternalContext().getFlash().setKeepMessages(true);
-        Faces.redirect(adminConfig.getIndexPage());
+
+        GetUserData gw = new GetUserData();
+        boolean state = gw.is_user(email, password);
+        if (state == true){
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Uhul! Seja bem vindo!", "Usuário ou senha incorretos!"));
+            currentUser = email;
+            Faces.getExternalContext().getFlash().setKeepMessages(true);
+            Faces.redirect(adminConfig.getIndexPage());
+        } else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Oooops... Usuário ou senha incorreto!", "Usuário ou senha incorretos!"));
+        }
     }
 
     @Override
