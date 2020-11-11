@@ -44,7 +44,7 @@ public class LogonMB extends AdminSession implements Serializable {
         GetUserData gw = new GetUserData();
         boolean state = gw.is_user(email, password);
         if (state == true){
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Uhul! Seja bem vindo!", "Usuário ou senha incorretos!"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Uhul! Seja bem vindo," + email + "!", ""));
             currentUser = email;
             Faces.getExternalContext().getFlash().setKeepMessages(true);
             Faces.redirect(adminConfig.getIndexPage());
